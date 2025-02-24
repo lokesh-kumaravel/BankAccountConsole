@@ -1,0 +1,22 @@
+1. Encapsulation (Data Hiding & Secure Access) - Customer, Account, Transaction
+---> Encapsulation ensures that sensitive data is hidden and accessible only through controlled methods (getters/setters). 
+    For example:
+        **The Customer class should hide personal details (customerId, balance, accountList) from direct modification.
+        **Account should prevent unauthorized access to balance modification.
+        **The Transaction class should store transaction details securely while allowing controlled access.
+
+2. Abstraction (Hiding Implementation & Providing Interfaces) - Account operations, Interest calculation, Loan processing
+    For example:
+        **The Account class should be abstract or an interface with common methods (deposit(), withdraw(), calculateInterest()).
+        **Abstracting interest calculation (calculateInterest()) for different accounts (SavingAccount, LoanAccount) ensures that the logic is defined once and overridden as needed.
+
+3. Inheritance (Code Reusability & Specialization) - Account types: Savings, Current, Loan
+    For example:
+        **Base class Account should have common fields like accountNo, balance, and customerId.
+        **Derived classes like SavingAccount, CurrentAccount, and LoanAccount should inherit Account and implement their own features (e.g., overdraft for current, EMI for loans).
+
+4. Polymorphism (Flexibility & Dynamic Behavior) - Different Account Types
+    For example:
+        **Method Overriding: deposit() and withdraw() work differently for SavingAccount, CurrentAccount, and LoanAccount.
+        **Method Overloading: A transaction can be initiated with different parameters (e.g., transfer(int accNo, double amount) vs transfer(int senderAccNo, int receiverAccNo, double amount)).
+    
