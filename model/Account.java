@@ -6,6 +6,6 @@ public interface Account {
     String getAccountType();
 
     void deposit(double amount);
-    void withdraw(double amount);
+    boolean withdraw(double amount);
 
 }

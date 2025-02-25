@@ -38,8 +38,11 @@ public class LoanAccount implements Account, Transaction {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public boolean withdraw(double amount) {
+
         System.out.println("Withdrawals are not allowed from a loan account.");
+        return false;
+
     }
 
     @Override

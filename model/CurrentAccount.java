@@ -38,13 +38,15 @@ public class CurrentAccount implements Account, Transaction {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public boolean withdraw(double amount) {
         if (amount > 0 && balance >= amount) {
             balance -= amount;
             transactionHistory.addTransaction("Withdrawn: " + amount + " | New Balance: " + balance);
             System.out.println("Withdrawn: " + amount + " | New Balance: " + balance);
+            return true;
         } else {
             System.out.println("Insufficient balance or invalid amount!");
+            return false;
         }
     }
 
