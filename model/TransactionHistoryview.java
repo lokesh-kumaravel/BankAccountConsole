@@ -3,14 +3,15 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionHistory {
-    private List<String> transactions = new ArrayList<>();
+public class TransactionHistoryview {
+    // private List<String> transactions = new ArrayList<>();
+    private static List<String> transactions = new ArrayList<>();
 
     public void addTransaction(String record) {
         transactions.add(record);
     }
 
-    public void printHistory() {
+    public static void printHistory() {
         if (transactions.isEmpty()) {
             System.out.println("No transactions found.");
         } else {

@@ -3,14 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import DAO.AccountDao;
+
 public class Customer {
     private int customerId;
     private String name;
     private String address;
     private String phoneNo;
-    private List<Account> accounts;
+    private List<AccountDao> accounts;
 
-    public Customer(int customerId, String name, String address, String phoneNo, List<Account> accounts) {
+    public Customer(int customerId, String name, String address, String phoneNo, List<AccountDao> accounts) {
         this.customerId = customerId;
         this.name = name;
         this.address = address;
@@ -63,15 +65,15 @@ public class Customer {
         }
     }
 
-    public void addAccount(Account account) {
+    public void addAccount(AccountDao account) {
         accounts.add(account);
     }
 
-    public List<Account> getAccounts() {
+    public List<AccountDao> getAccounts() {
         return accounts;
     }
 
-    public void removeAccount(Account account) {
+    public void removeAccount(AccountDao account) {
         accounts.remove(account);
     }
 
@@ -81,7 +83,7 @@ public class Customer {
         System.out.println("Address: " + address);
         System.out.println("Phone No: " + phoneNo);
         System.out.println("Accounts:");
-        for (Account acc : accounts) {
+        for (AccountDao acc : accounts) {
             System.out.println("  - " + acc.getAccountType() + " (Acc No: " + acc.getAccountNo() + ")");
         }
     }

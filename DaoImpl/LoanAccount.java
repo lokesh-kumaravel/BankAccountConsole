@@ -1,10 +1,14 @@
-package model;
+package DaoImpl;
 
-public class LoanAccount implements Account, Transaction {
+import DAO.AccountDao;
+import DAO.TransactionDao;
+import model.TransactionHistoryview;
+
+public class LoanAccount implements AccountDao, TransactionDao {
     private int accountNo;
     private double balance;
     private final String accountType = "Loan";
-    private TransactionHistory transactionHistory = new TransactionHistory();
+    private TransactionHistoryview transactionHistory = new TransactionHistoryview();
 
     public LoanAccount(int accountNo, double loanAmount) {
         this.accountNo = accountNo;
@@ -46,12 +50,12 @@ public class LoanAccount implements Account, Transaction {
     }
 
     @Override
-    public void transfer(double amount, Account targetAccount) {
+    public void transfer(double amount, AccountDao targetAccount) {
         System.out.println("Transfers are not allowed from a loan account.");
     }
 
     @Override
     public void printTransactionHistory() {
-        transactionHistory.printHistory();
+        TransactionHistoryview.printHistory();
     }
 }

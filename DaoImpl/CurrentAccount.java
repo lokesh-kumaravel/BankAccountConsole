@@ -1,10 +1,14 @@
-package model;
+package DaoImpl;
 
-public class CurrentAccount implements Account, Transaction {
+import DAO.AccountDao;
+import DAO.TransactionDao;
+import model.TransactionHistoryview;
+
+public class CurrentAccount implements AccountDao, TransactionDao {
     private int accountNo;
     private double balance;
     private final String accountType = "Current";
-    private TransactionHistory transactionHistory = new TransactionHistory();
+    private TransactionHistoryview transactionHistory = new TransactionHistoryview();
 
     public CurrentAccount(int accountNo, double balance) {
         this.accountNo = accountNo;
@@ -51,11 +55,12 @@ public class CurrentAccount implements Account, Transaction {
     }
 
     @Override
-    public void transfer(double amount, Account targetAccount) {
+    public void transfer(double amount, AccountDao targetAccount) {
         if (amount > 0 && balance >= amount) {
             balance -= amount;
             targetAccount.deposit(amount);
-            transactionHistory.addTransaction("Transferred: " + amount + " to Account No: " + targetAccount.getAccountNo());
+            transactionHistory
+                    .addTransaction("Transferred: " + amount + " to Account No: " + targetAccount.getAccountNo());
             System.out.println("Transferred: " + amount + " to Account No: " + targetAccount.getAccountNo());
         } else {
             System.out.println("Insufficient balance or invalid amount!");
@@ -66,4 +71,5 @@ public class CurrentAccount implements Account, Transaction {
     public void printTransactionHistory() {
         transactionHistory.printHistory();
     }
+
 }
