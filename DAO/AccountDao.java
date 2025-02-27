@@ -1,9 +1,5 @@
 package DAO;
 
-import java.util.Scanner;
-
-import model.Branch;
-
 public interface AccountDao {
 
     int getAccountNo();

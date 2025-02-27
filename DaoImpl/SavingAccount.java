@@ -1,11 +1,8 @@
 package DaoImpl;
 
-import java.util.Scanner;
-
 import DAO.AccountDao;
 import DAO.TransactionDao;
-import model.Branch;
-import model.TransactionHistoryview;
+import view.TransactionHistoryview;
 
 public class SavingAccount implements AccountDao, TransactionDao {
     private int accountNo;

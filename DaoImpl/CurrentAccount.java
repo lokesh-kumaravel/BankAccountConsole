@@ -2,7 +2,7 @@ package DaoImpl;
 
 import DAO.AccountDao;
 import DAO.TransactionDao;
-import model.TransactionHistoryview;
+import view.TransactionHistoryview;
 
 public class CurrentAccount implements AccountDao, TransactionDao {
     private int accountNo;
